@@ -2,6 +2,7 @@ package teste.residencia.controller;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import teste.residencia.model.User;
 import teste.residencia.model.UserSkill;
 import teste.residencia.service.UserSkillService;
 
@@ -34,7 +36,13 @@ public class UserSkillController {
 		HttpHeaders headers = new HttpHeaders();
 		return new ResponseEntity<>(userSkillService.findById(id), headers, HttpStatus.OK);
 	}
-
+	
+	@PostMapping("/now")
+	public ResponseEntity<Optional<List<UserSkill>>> findByUser(@RequestBody @Valid User user){
+		Optional<List<UserSkill>> userSkills = userSkillService.findByUser(user);
+		return ResponseEntity.ok(userSkills);
+	}
+	
 	@GetMapping
 	public ResponseEntity<List<UserSkill>> getAll() {
 		List<UserSkill> userSkills = userSkillService.findAll();

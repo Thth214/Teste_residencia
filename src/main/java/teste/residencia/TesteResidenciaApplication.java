@@ -1,4 +1,4 @@
-package teste_residencia;
+package teste.residencia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -21,9 +21,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import teste.residencia.model.User;
 import teste.residencia.service.UserService;
+import teste.residencia.shared.LoginRequest;
+import teste.residencia.shared.LoginResponse;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
@@ -48,6 +50,10 @@ public class UserController {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(l.getId()).toUri();
 		return ResponseEntity.created(uri).body(l);
 	}
+	@PostMapping("/login")
+	public LoginResponse login (@RequestBody LoginRequest request) throws Exception {
+        return userService.login(request.getLogin(), request.getPassword());
+    }
 
 	@PutMapping("/{id}")
 
@@ -55,6 +61,7 @@ public class UserController {
 		return userService.update(id, user);
 	}
 
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<User> delete(@PathVariable Integer id) {
 		try {

@@ -22,19 +22,19 @@ public class Skill {
 	@Column(name = "description", nullable = false)
 	private String description;
 	@Column(name = "image_url", nullable = false)
-	private String image_url;
+	private String imageUrl;
 	
 	public Skill() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Skill(Integer id, String name, String version, String description, String image_url) {
+	public Skill(Integer id, String name, String version, String description, String imageUrl) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.version = version;
 		this.description = description;
-		this.image_url = image_url;
+		this.imageUrl = imageUrl;
 	}
 
 	public Integer getId() {
@@ -70,11 +70,11 @@ public class Skill {
 	}
 
 	public String getImage_url() {
-		return image_url;
+		return imageUrl;
 	}
 
-	public void setImage_url(String image_url) {
-		this.image_url = image_url;
+	public void setImage_url(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	@Override

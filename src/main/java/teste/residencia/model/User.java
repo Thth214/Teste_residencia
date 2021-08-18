@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "usuario")
 public class User {
 
 	@Id
@@ -21,20 +21,20 @@ public class User {
 	private String login;	
 	@Column(name = "password", nullable = false)
 	private String password;	
-	@Column(name = "last_login_date", nullable = false)
-	private Timestamp last_login_date;
+	@Column(name = "last_login_date")
+	private Timestamp lastLoginDate;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 	
 
-	public User(Integer id, String login, String password, Timestamp last_login_date) {
+	public User(Integer id, String login, String password, Timestamp lastLoginDate) {
 		super();
 		this.id = id;
 		this.login = login;
 		this.password = password;
-		this.last_login_date = last_login_date;
+		this.lastLoginDate = lastLoginDate;
 	}
 
 	public Integer getId() {
@@ -62,11 +62,11 @@ public class User {
 	}
 
 	public Timestamp getLast_login_date() {
-		return last_login_date;
+		return lastLoginDate;
 	}
 
-	public void setLast_login_date(Timestamp last_login_date) {
-		this.last_login_date = last_login_date;
+	public void setLast_login_date(Timestamp lastLoginDate) {
+		this.lastLoginDate = lastLoginDate;
 	}
 	
 	@Override

@@ -26,6 +26,8 @@ public class UserSkill {
 	@ManyToOne
 	@JoinColumn(name = "skill_id")
 	private Skill skill;
+	@Column (name = "knowledge_level",nullable=false)
+	private Integer knowledgeLevel;
 	@Column(name = "created_at", nullable = false)
 	private Timestamp createdAt;
 	@Column(name = "update_at", nullable = false)
@@ -35,14 +37,32 @@ public class UserSkill {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserSkill(Integer id, User user, Skill skill, Timestamp createdAt, Timestamp updateAt) {
+	
+
+	public UserSkill(Integer id, User user, Skill skill, Integer knowledgeLevel, Timestamp createdAt,
+			Timestamp updateAt) {
 		super();
 		this.id = id;
 		this.user = user;
 		this.skill = skill;
+		this.knowledgeLevel = knowledgeLevel;
 		this.createdAt = createdAt;
 		this.updateAt = updateAt;
 	}
+
+
+
+	public Integer getKnowledgeLevel() {
+		return knowledgeLevel;
+	}
+
+
+
+	public void setKnowledgeLevel(Integer knowledgeLevel) {
+		this.knowledgeLevel = knowledgeLevel;
+	}
+
+
 
 	public Integer getId() {
 		return id;
